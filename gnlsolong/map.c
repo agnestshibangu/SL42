@@ -58,20 +58,20 @@ void    animation_caracter(t_game *game, int x, int y)
 
 }
 
+
+
 void drawGrid(t_game *game) {
 
     char *xpm_path_wall = "./wall.xpm"; 
     char *xpm_path_ground = "./ground.xpm";
-
-    char *xpm_path_door = "./door.xpm";
-    char *xpm_path_collectible = "./diamond.xpm";
+    char *xpm_path_collectible = "./collectible.xpm";
+    char *xpm_path_door = "./portal.xpm";
 
     void *xpm_img_wall = mlx_xpm_file_to_image(game->mlx, xpm_path_wall, &game->xpm_width, &game->xpm_height);
     void *xpm_img_ground = mlx_xpm_file_to_image(game->mlx, xpm_path_ground, &game->xpm_width, &game->xpm_height);
 
-
-    void *xpm_img_door = mlx_xpm_file_to_image(game->mlx, xpm_path_door, &game->xpm_width, &game->xpm_height);
     void *xpm_img_collectible = mlx_xpm_file_to_image(game->mlx, xpm_path_collectible, &game->xpm_width, &game->xpm_height);
+     void *xpm_img_door = mlx_xpm_file_to_image(game->mlx, xpm_path_door, &game->xpm_width, &game->xpm_height);
 
     int y;
     int x;
@@ -96,8 +96,6 @@ void drawGrid(t_game *game) {
                 mlx_put_image_to_window(game->mlx, game->win, xpm_img_collectible, x * game->xpm_width, y * game->xpm_height);
             else if (game->map[y][x]  == 'E') 
                 mlx_put_image_to_window(game->mlx, game->win, xpm_img_door, x * game->xpm_width, y * game->xpm_height);
-            // else if (game->map[game->player_pos_y][game->player_pos_y] == 'P')
-            //     mlx_put_image_to_window(mlx, mlx_win, xpm_img_perso, x * xpm_width, y * xpm_height);
             x++;
         }
         y++;

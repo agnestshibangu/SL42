@@ -32,11 +32,16 @@ int     display_player_pos(t_game *game)
 
 void portal(t_game *game)
 {
+    int win_width = 800;
+    int win_height = 800;
+
+    char *xpm_path_perso_down_down = "./perso_down_down.xpm";
+    void *xpm_img_perso_down_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down_down, &game->xpm_width, &game->xpm_height);
+    
     if (game->got_collectibles == game->nb_collectibles
         && game->map[game->player_pos_y][game->player_pos_x] == 'E' )
     {
-        printf("WIN");
-        fflush(stdout); 
+        mlx_put_image_to_window(game->mlx, game->win, xpm_img_perso_down_down, win_width, win_height);
     }
 }
 

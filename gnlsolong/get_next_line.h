@@ -28,6 +28,7 @@ typedef struct s_game
     int         xpm_width;
     int         nb_collectibles;
     int         got_collectibles;
+    int         game_complete;
 }               t_game;
 
 #include "./gnl_utils.c"
@@ -59,6 +60,7 @@ int check_map(t_game *game);
 // map
 void drawGrid(t_game *game);
 void    count_collectibles(t_game *game);
+
 // void drawGrid(void *mlx, void *mlx_win, int xpm_width, int xpm_height, t_game *game);
 // moves
 int     display_player_pos(t_game *game);

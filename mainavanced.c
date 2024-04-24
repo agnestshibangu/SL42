@@ -3,7 +3,6 @@
 // mallocer mlx
 // 
 
-
 #include "./minilibx/mlx.h"
 #include <stdio.h>
 #include "./includes/so_long.h"
