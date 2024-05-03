@@ -102,9 +102,6 @@ void drawGrid(t_game *game) {
     }
 }
 
-
-
-
 void    count_collectibles(t_game *game)
 {
   int y;
