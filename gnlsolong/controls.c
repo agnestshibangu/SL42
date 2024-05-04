@@ -41,7 +41,12 @@ void portal(t_game *game)
     if (game->got_collectibles == game->nb_collectibles
         && game->map[game->player_pos_y][game->player_pos_x] == 'E' )
     {
-        mlx_put_image_to_window(game->mlx, game->win, xpm_img_perso_down_down, win_width, win_height);
+        char *path = "image_end.xpm";
+        mlx_clear_window(game->mlx, game->win);
+        display_image_before(game, path);
+        mlx_clear_window(game->mlx, game->win);
+        mlx_destroy_window(game->mlx, game->win);
+        // mlx_put_image_to_window(game->mlx, game->win, xpm_img_perso_down_down, win_width, win_height);
     }
 }
 

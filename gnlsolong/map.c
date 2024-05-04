@@ -30,8 +30,6 @@ void    animation_caracter(t_game *game, int x, int y)
     void *xpm_img_perso_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down, &game->xpm_width, &game->xpm_height);
     void *xpm_img_perso_down_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down_down, &game->xpm_width, &game->xpm_height);
 
-
-
     // right
     if ((game->player_sprite == 0) && (game->steps % 2 == 0))
         mlx_put_image_to_window(game->mlx, game->win, xpm_img_perso, x * game->xpm_width, y * game->xpm_height);
@@ -127,32 +125,3 @@ void    count_collectibles(t_game *game)
 
 
 
-
-
-// void place_caracter(void *mlx, void *mlx_win, int xpm_width, int xpm_height, t_game *game)
-// {
-//     int y;
-//     int x;
-
-//     int i = game->player_pos_y;
-//     int j = game->player_pos_x;
-
-//     y = 0;
-//     while (y < game->map_height)
-//     {
-//         x = 0;
-//         while (x < game->map_width - 1)
-//         {
-//             if ((game->player_pos_y == y) && (game->player_pos_x == x))
-//                 mlx_put_image_to_window(mlx, mlx_win, xpm_img_perso, x * xpm_width, y * xpm_height);
-//             x++;
-//         }
-//         y++;
-//     }
-
-
-
-
-
-
-// }

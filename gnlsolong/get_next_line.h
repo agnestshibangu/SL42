@@ -29,13 +29,17 @@ typedef struct s_game
     int         nb_collectibles;
     int         got_collectibles;
     int         game_complete;
+    int         win_width;
+    int         win_height;
 }               t_game;
 
 #include "./gnl_utils.c"
 #include "./gnl.c"
 #include "./checkmap.c"
 #include "./map.c"
+#include "./init.c"
 #include "./controls.c"
+
 
 
 int	ft_strlen(const char *str);
@@ -49,6 +53,9 @@ char	*get_next_line(int fd);
 static void	*ft_memset(void *b, int c, size_t length);
 int     calculate_len(t_game *game, char *treated_line);
 //int     calculate_len(char *treated_line);
+
+void    display_image_before(t_game *game, char *path);
+
 static int	save_line_in_map(t_game *game, char *line);
 int     check_rectangle(t_game *game);
 int     check_walls_horizontal(t_game *game);
@@ -57,8 +64,10 @@ int     check_allowed_caracters(t_game *game);
 t_game *malloc_game();
 int check_if_rectancle(t_game *game);
 int check_map(t_game *game);
+
 // map
-void drawGrid(t_game *game);
+void    create_map(t_game *game);
+void    drawGrid(t_game *game);
 void    count_collectibles(t_game *game);
 
 // void drawGrid(void *mlx, void *mlx_win, int xpm_width, int xpm_height, t_game *game);

@@ -24,42 +24,20 @@ int main() {
 
     t_game  game;
 
-    int fd; 
-    char *treated_line;
+    create_map(&game);
 
-    game.xpm_height = 20;
-    game.xpm_width = 20;
-
-    char *name_file;
-    name_file = "file2.ber";
-
-    check_extension_file_name(name_file);
-    malloc_game();
-
-    fd = open(name_file, O_RDONLY);
-    ft_memset(&game, 0, sizeof(t_game));
-    // malloc map
-
-    while (1) {
-        treated_line = get_next_line(fd);
-        // printf("here %s", treated_line);
-        save_line_in_map(&game, treated_line);
-        if (!treated_line)
-			break ;
-    }
-    
     calculate_len(&game, game.map[0]);
 
     check_map(&game);
     count_collectibles(&game);
 
+    game.win_width = 600;
+    game.win_height = 600;
     game.mlx = mlx_init();
     game.win = mlx_new_window(game.mlx, 600, 600, "game map");
-    
 
-    game.xpm_height = 50;
-    game.xpm_width = 50;
-
+    char *path = "first_image.xpm";
+    display_image_before(&game, path);
 
     display_player_pos(&game);
   
