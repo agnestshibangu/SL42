@@ -34,7 +34,6 @@ void    display_image_before(t_game *game, char *path)
     mlx_put_image_to_window(game->mlx, game->win, image, 0, 0);
     mlx_do_sync(game->mlx);
 
-    // Wait for a few seconds (e.g., 3 seconds)
     usleep(3000000); // 3 seconds
 
     // Clear the window

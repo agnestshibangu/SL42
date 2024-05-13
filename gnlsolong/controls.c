@@ -43,10 +43,8 @@ void portal(t_game *game)
     {
         char *path = "image_end.xpm";
         mlx_clear_window(game->mlx, game->win);
+        free_game(game); // this function frees everything !
         display_image_before(game, path);
-        mlx_clear_window(game->mlx, game->win);
-        mlx_destroy_window(game->mlx, game->win);
-        // mlx_put_image_to_window(game->mlx, game->win, xpm_img_perso_down_down, win_width, win_height);
     }
 }
 

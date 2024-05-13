@@ -80,7 +80,7 @@ int     check_rectangle(t_game *game)
     
     int height;
     height = game->map_height;
-    printf("map after treatement");
+    printf("map after treatement\n");
     int i = 0;
     while (i < height)
     {
@@ -109,9 +109,9 @@ int     check_walls_horizontal(t_game *game)
         i++;
     }
     if (count == len)
-        printf("horizontal walls ok !");
+        printf("horizontal walls ok !\n");
     else 
-        printf("horizontal walls ISSUE");
+        printf("horizontal walls ISSUE\n");
     return (1);
 }
 
@@ -193,10 +193,10 @@ int check_if_rectancle(t_game *game)
         while(game->map[game->map_height - 1][x])
             x++;
         if (x == init_len - 1)
-            printf("last line ok");
+            printf("last line ok\n");
         else 
         {
-            printf("error");
+            printf("error\n");
             return (0);
         }
     }
@@ -225,12 +225,9 @@ int check_extension_file_name(char *name)
 
 int check_map(t_game *game)
 {
-    printf("HEREEEEEEEEEEEEEE\n");
     check_walls_horizontal(game);
     check_walls_vertical(game);
     check_allowed_caracters(game);
     check_if_rectancle(game);
-    printf("HEREEEEEEEEEEEEEE\n");
-
     return (0);
 }

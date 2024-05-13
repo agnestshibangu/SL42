@@ -38,7 +38,9 @@ typedef struct s_game
 #include "./checkmap.c"
 #include "./map.c"
 #include "./init.c"
+#include "./free.c"
 #include "./controls.c"
+
 
 
 
@@ -84,6 +86,10 @@ void portal(t_game *game);
 void    animation_caracter(t_game *game, int x, int y);
 // increase step count for animation
 void walking(t_game *game);
+
+// free.c
+int     free_game(t_game *game);
+
 
 
 #endif

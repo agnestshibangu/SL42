@@ -27,7 +27,7 @@ int main() {
     check_walls_vertical(&game);
     check_allowed_caracters(&game);
     check_if_rectancle(&game);
-    printf("check rectangle 1 : %d", check_if_rectancle(&game));
+    printf("check rectangle 1 : %d\n", check_if_rectancle(&game));
     
     return 0;
 }

@@ -9,16 +9,6 @@
 #include "./gnlsolong/get_next_line.h"
 #include <stdlib.h>
 
-int	exit_point(t_game *game)
-{
-	int	line;
-
-	line = 0;
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	free(game->mlx);
-	exit(0);
-}
 
 int main() {
 
@@ -29,14 +19,26 @@ int main() {
     calculate_len(&game, game.map[0]);
 
     check_map(&game);
+
     count_collectibles(&game);
 
-    game.win_width = 600;
-    game.win_height = 600;
+    printf("printf game width === %d\n", game.map_width);
+    printf("printf game height === %d\n", game.map_height);
+
+    int window_width;
+    int window_height;
+
+    // printf("printf xpm width === %d", game.xpm_width);
+    // printf("printf xpm height === %d", game.xpm_height);
+
+
+    window_width = game.map_width * 29; // 20
+    window_height = (game.map_height - 1) * 28; // 12
     game.mlx = mlx_init();
-    game.win = mlx_new_window(game.mlx, 600, 600, "game map");
+    game.win = mlx_new_window(game.mlx, window_width, window_height, "game map");
 
     char *path = "first_image.xpm";
+
     display_image_before(&game, path);
 
     display_player_pos(&game);

@@ -69,7 +69,7 @@ void drawGrid(t_game *game) {
     void *xpm_img_ground = mlx_xpm_file_to_image(game->mlx, xpm_path_ground, &game->xpm_width, &game->xpm_height);
 
     void *xpm_img_collectible = mlx_xpm_file_to_image(game->mlx, xpm_path_collectible, &game->xpm_width, &game->xpm_height);
-     void *xpm_img_door = mlx_xpm_file_to_image(game->mlx, xpm_path_door, &game->xpm_width, &game->xpm_height);
+    void *xpm_img_door = mlx_xpm_file_to_image(game->mlx, xpm_path_door, &game->xpm_width, &game->xpm_height);
 
     int y;
     int x;
