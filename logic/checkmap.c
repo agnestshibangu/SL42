@@ -42,7 +42,6 @@ static int	save_line_in_map(t_game *game, char *line)
 {
     char **temp;
     int i;
-    // int height;
 
     if (!line)
         return (0);
@@ -209,7 +208,7 @@ int check_extension_file_name(char *name)
         i++;
     }
     if (y == 4 && name[i] == '\0')
-        printf("extension ok");
+        printf("extension ok\n");
     return (0);
 }
     

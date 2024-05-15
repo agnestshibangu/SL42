@@ -36,10 +36,12 @@ typedef struct s_game
 #include "./gnl_utils.c"
 #include "./gnl.c"
 #include "./checkmap.c"
+#include "./floodfill.c"
 #include "./map.c"
 #include "./init.c"
 #include "./free.c"
 #include "./controls.c"
+
 
 
 
@@ -71,6 +73,13 @@ int check_map(t_game *game);
 void    create_map(t_game *game);
 void    drawGrid(t_game *game);
 void    count_collectibles(t_game *game);
+void    window_size(t_game *game);
+
+// floodfill
+void    map_len(t_game *game);
+void	flood_map(t_game *game, int x, int y);
+int     check_flood_fill(t_game *game);
+int map_free_after_flood_fill(t_game *game);
 
 // void drawGrid(void *mlx, void *mlx_win, int xpm_width, int xpm_height, t_game *game);
 // moves

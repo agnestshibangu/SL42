@@ -6,31 +6,28 @@
 
 int main() {
 
-    printf("START");
-
     t_game  game;
-
+    
+    // - FLOOD FILL CHECK - //
+    // create map
     create_map(&game);
+    map_len(&game);
+    // // make floodfill || make sure floodfill is OK
+    display_player_pos(&game);
+    flood_map(&game, game.player_pos_x, game.player_pos_y);
+    check_flood_fill(&game);
+    // 
+    // destroy map
+    map_free_after_flood_fill(&game);
 
+
+    // - CREATE MAP -// 
+    create_map(&game);
     calculate_len(&game, game.map[0]);
-
     check_map(&game);
-
-    printf("printf xpm width === %d\n", game.map_width);
-    //printf("printf xpm height === %d\n", game.map_height);
-
     count_collectibles(&game);
-  
-
-    int window_width;
-    int window_height;
-
-
-    window_width = (game.map_width - 1) * 31; // 20
-    window_height = game.map_height * 31; // 12
-    game.mlx = mlx_init();
-    game.win = mlx_new_window(game.mlx, window_width, window_height, "game map");
-
+    window_size(&game);
+   
     char *path = "./images_op_end/first_image.xpm";
 
     display_image_before(&game, path);

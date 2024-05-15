@@ -10,14 +10,17 @@ void    create_map(t_game *game)
     check_extension_file_name(name_file);
     fd = open(name_file, O_RDONLY);
     ft_memset(game, 0, sizeof(t_game));
-    // malloc map
 
     while (1) {
         treated_line = get_next_line(fd);
         save_line_in_map(game, treated_line);
+        printf("%s", treated_line);
         if (!treated_line)
 			break;
     }
+    printf("\n");
+    printf("\n");
+    printf("CREATE MAP DONE\n");
 }
 
 void    display_image_before(t_game *game, char *path)
@@ -37,4 +40,15 @@ void    display_image_before(t_game *game, char *path)
     usleep(3000000); // 3 seconds
 
     mlx_clear_window(game->mlx, game->win);
+}
+
+void window_size(t_game *game)
+{
+    int window_width;
+    int window_height;
+
+    window_width = (game->map_width - 1) * 31; // 20
+    window_height = game->map_height * 31; // 12
+    game->mlx = mlx_init();
+    game->win = mlx_new_window(game->mlx, window_width, window_height, "game map");
 }

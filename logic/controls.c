@@ -1,16 +1,13 @@
 #include "get_next_line.h"
 
-// sprite 0 RIGHT
-// sprite 1 UP
-// sprite 2 LEFT
-// sprite 3 DOWN
-
 int     display_player_pos(t_game *game)
 {
     int x;
     int y;
 
     y = 0;
+    printf("map height %d\n", game->map_height);
+    printf("map width %d\n", game->map_width);
     while (y < game->map_height)
     {
         x = 0;
@@ -20,6 +17,8 @@ int     display_player_pos(t_game *game)
             {
                 game->player_pos_x = x;
                 game->player_pos_y = y;
+                printf("player pos x %d\n", game->player_pos_x);
+                printf("player pos y %d\n", game->player_pos_y);
                 game->map[y][x] = '0';
                 return (0);
             }
@@ -27,6 +26,7 @@ int     display_player_pos(t_game *game)
         }
         y++;
     }
+    printf("PLAYER POSITION\n");
     return (1);
 }
 
