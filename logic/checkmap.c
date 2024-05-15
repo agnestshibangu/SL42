@@ -1,12 +1,5 @@
 #include "get_next_line.h"
 
-//  pseudo code 
-//  verifier que la map est rectangle
-//  verifier que la map a des murs partout
-//  verifier que la map contient seulement les 
-//  caracteres 1 0 E P C 
-// verfier que la map n est pas une ligne
-
 static void	*ft_memset(void *b, int c, size_t length)
 {
 	unsigned char	*p;

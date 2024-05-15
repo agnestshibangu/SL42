@@ -1,7 +1,6 @@
-// mlx_clear_window(game->mlx, game->win);
-// mlx_destroy_window(game->mlx, game->win);
+#include "get_next_line.h"
 
-int     free_game(t_game *game)
+int free_game(t_game *game)
 {
     int     nbr_of_lines;
 

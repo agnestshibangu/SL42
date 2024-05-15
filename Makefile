@@ -10,7 +10,7 @@ CFLAGS := -Wall -Wextra -Werror -g
 # CFLAGS := -Wall -Wextra -Werror -Iheaders/
 
 #Liste des fichiers source.
-SRCS := mainavanced.c	
+SRCS := main.c	
 
 # Options de la bibliotheque MiniLibX et des bibliotheques systeme
 LIBRARY := -Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm -lz 

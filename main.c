@@ -16,17 +16,17 @@ int main() {
 
     check_map(&game);
 
+    printf("printf xpm width === %d\n", game.map_width);
+    //printf("printf xpm height === %d\n", game.map_height);
+
     count_collectibles(&game);
   
 
     int window_width;
     int window_height;
 
-   //printf("printf xpm width === %d", game.xpm_width);
-    // printf("printf xpm height === %d", game.xpm_height);
 
-
-    window_width = game.map_width * 31; // 20
+    window_width = (game.map_width - 1) * 31; // 20
     window_height = game.map_height * 31; // 12
     game.mlx = mlx_init();
     game.win = mlx_new_window(game.mlx, window_width, window_height, "game map");
