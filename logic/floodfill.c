@@ -70,4 +70,17 @@ int     check_flood_fill(t_game *game)
     return (0);
 }
 
+int     check_flood_fill_map(t_game *game)
+{
+    create_map(game); // create map from .ber file 
+    map_len(game); // calculate map width
+    display_player_pos(game); // define player pos
+    flood_map(game, game->player_pos_x, game->player_pos_y); // flood fill
+    check_flood_fill(game); // check flood fill
+    map_free_after_flood_fill(game); // free everything before beginning game
+    
+    printf("\n");
+    printf(" !!! check flood fill DONE !!!");
+    return (1);
+}
 

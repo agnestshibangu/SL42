@@ -95,7 +95,6 @@ int move_left(t_game *game)
         if (game->map[y][x - 1] == 'C')
         {
             game->got_collectibles++;
-            // printf("GOT %d\n", game->got_collectibles);
             fflush(stdout);  
             game->map[y][x - 1] = '0';
         }  
