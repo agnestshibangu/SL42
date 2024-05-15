@@ -75,7 +75,6 @@ void    count_collectibles(t_game *game);
 // void drawGrid(void *mlx, void *mlx_win, int xpm_width, int xpm_height, t_game *game);
 // moves
 int     display_player_pos(t_game *game);
-static int  keyboard_w_s(t_game *game, int movement);
 int	controls_working(int command, t_game *game);
 int move_right(t_game *game);
 int move_left(t_game *game);

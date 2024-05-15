@@ -5,7 +5,7 @@ void    create_map(t_game *game)
     int fd; 
     char *treated_line;
     char *name_file;
-    name_file = "file2.ber";
+    name_file = "./ber_files/file2.ber";
 
     check_extension_file_name(name_file);
     fd = open(name_file, O_RDONLY);
@@ -36,6 +36,5 @@ void    display_image_before(t_game *game, char *path)
 
     usleep(3000000); // 3 seconds
 
-    // Clear the window
     mlx_clear_window(game->mlx, game->win);
 }

@@ -49,29 +49,27 @@ static int	save_line_in_map(t_game *game, char *line)
 {
     char **temp;
     int i;
-    int height;
+    // int height;
 
     if (!line)
         return (0);
-    height = game->map_height;
-    height++; 
-
-    temp = (char **)malloc(sizeof(char *) * (height + 1));
-    temp[height] = NULL;
     i = 0;
-
-    while (i < height - 1)
+    game->map_height++;
+    temp = (char **)malloc(sizeof(char *) * (game->map_height + 1));
+    temp[game->map_height] = NULL;
+    while (i < game->map_height - 1)
     {
         temp[i] = game->map[i];
         i++;
     }
-      
     temp[i] = line;
     if (game->map != NULL)
         free(game->map);
     game->map = temp;
-    game->map_height = height;
-    printf("save map done\n");
+    // game->map_height = height;
+    // printf("save map done\n");
+    // printf("I am here map height == %d\n", game->map_height);
+    
     return (1);
 }
 

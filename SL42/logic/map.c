@@ -3,29 +3,29 @@
 void    animation_caracter(t_game *game, int x, int y)
 {
     // right 
-    char *xpm_path_perso = "./perso.xpm";
-    char *xpm_path_perso_right_right = "./perso_right_right.xpm";
+    char *xpm_path_perso = "./images/perso.xpm";
+    char *xpm_path_perso_right_right = "./images/perso_right_right.xpm";
     //
     void *xpm_img_perso = mlx_xpm_file_to_image(game->mlx, xpm_path_perso, &game->xpm_width, &game->xpm_height);
     void *xpm_img_perso_right_right = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_right_right, &game->xpm_width, &game->xpm_height);
     
     // up 
-    char *xpm_path_perso_up = "./perso_up.xpm";
-    char *xpm_path_perso_up_up = "./perso_up_up.xpm";
+    char *xpm_path_perso_up = "./images/perso_up.xpm";
+    char *xpm_path_perso_up_up = "./images/perso_up_up.xpm";
     //
     void *xpm_img_perso_up = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_up, &game->xpm_width, &game->xpm_height);
     void *xpm_img_perso_up_up = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_up_up, &game->xpm_width, &game->xpm_height);
     
     // left
-    char *xpm_path_perso_left = "./perso_left.xpm";
-    char *xpm_path_perso_left_left = "./perso_left_left.xpm";
+    char *xpm_path_perso_left = "./images/perso_left.xpm";
+    char *xpm_path_perso_left_left = "./images/perso_left_left.xpm";
     //
     void *xpm_img_perso_left = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_left, &game->xpm_width, &game->xpm_height);
     void *xpm_img_perso_left_left = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_left_left, &game->xpm_width, &game->xpm_height);
     
     // down
-    char *xpm_path_perso_down = "./perso_down.xpm";
-     char *xpm_path_perso_down_down = "./perso_down_down.xpm";
+    char *xpm_path_perso_down = "./images/perso_down.xpm";
+     char *xpm_path_perso_down_down = "./images/perso_down_down.xpm";
     //
     void *xpm_img_perso_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down, &game->xpm_width, &game->xpm_height);
     void *xpm_img_perso_down_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down_down, &game->xpm_width, &game->xpm_height);
@@ -60,10 +60,10 @@ void    animation_caracter(t_game *game, int x, int y)
 
 void drawGrid(t_game *game) {
 
-    char *xpm_path_wall = "./wall.xpm"; 
-    char *xpm_path_ground = "./ground.xpm";
-    char *xpm_path_collectible = "./collectible.xpm";
-    char *xpm_path_door = "./portal.xpm";
+    char *xpm_path_wall = "./images/wall.xpm"; 
+    char *xpm_path_ground = "./images/ground.xpm";
+    char *xpm_path_collectible = "./images/collectible.xpm";
+    char *xpm_path_door = "./images/portal.xpm";
 
     void *xpm_img_wall = mlx_xpm_file_to_image(game->mlx, xpm_path_wall, &game->xpm_width, &game->xpm_height);
     void *xpm_img_ground = mlx_xpm_file_to_image(game->mlx, xpm_path_ground, &game->xpm_width, &game->xpm_height);

@@ -32,16 +32,10 @@ int     display_player_pos(t_game *game)
 
 void portal(t_game *game)
 {
-    int win_width = 800;
-    int win_height = 800;
-
-    char *xpm_path_perso_down_down = "./perso_down_down.xpm";
-    void *xpm_img_perso_down_down = mlx_xpm_file_to_image(game->mlx, xpm_path_perso_down_down, &game->xpm_width, &game->xpm_height);
-    
     if (game->got_collectibles == game->nb_collectibles
         && game->map[game->player_pos_y][game->player_pos_x] == 'E' )
     {
-        char *path = "image_end.xpm";
+        char *path = "./images_op_end/image_end.xpm";
         mlx_clear_window(game->mlx, game->win);
         free_game(game); // this function frees everything !
         display_image_before(game, path);
@@ -51,7 +45,7 @@ void portal(t_game *game)
 void walking(t_game *game)
 {
     game->steps += 1;
-    printf("step %d", game->steps);
+    // printf("step %d", game->steps);
     fflush(stdout); 
 }
 
@@ -80,6 +74,7 @@ int move_right(t_game *game)
     }
     drawGrid(game);
     portal(game);
+    return (0);
 }
 
 int move_left(t_game *game)
@@ -100,13 +95,14 @@ int move_left(t_game *game)
         if (game->map[y][x - 1] == 'C')
         {
             game->got_collectibles++;
-            printf("GOT %d\n", game->got_collectibles);
+            // printf("GOT %d\n", game->got_collectibles);
             fflush(stdout);  
             game->map[y][x - 1] = '0';
         }  
     }
     drawGrid(game);
     portal(game);
+    return (0);
 }
 
 int move_up(t_game *game)
@@ -135,6 +131,7 @@ int move_up(t_game *game)
     }
     drawGrid(game);
     portal(game);
+    return (0);
 }
 
 int move_down(t_game *game)
@@ -162,6 +159,7 @@ int move_down(t_game *game)
     }
     drawGrid(game);
     portal(game);
+    return (0);
 }
 
 
