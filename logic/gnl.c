@@ -1,37 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gnl.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 12:54:19 by agtshiba          #+#    #+#             */
+/*   Updated: 2024/05/17 13:09:44 by agtshiba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-static char *make_line(int fd, char *buffer, char *storage)
+static char	*make_line(int fd, char *buffer, char *storage)
 {
-	int read_bytes;
-	char *temp;
+	int		read_bytes;
+	char	*temp;
 
 	read_bytes = 1;
-	
 	while (read_bytes)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[read_bytes] = '\0';
 		if (read_bytes == -1)
-			return NULL;
+			return (NULL);
 		else if (read_bytes == 0)
 			break ;
 		if (!storage)
 			storage = ft_strdup("");
-
-		temp = storage; 
-		// printf("temp : %s\n", temp);
+		temp = storage;
 		storage = ft_strjoin(temp, buffer);
-		
 		free(temp);
-		
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	return (storage);
 }
 
-static char *extract(char *line) {
-// char *extract(char *line) {
+static char	*extract(char *line)
+{
 	size_t	count;
 	char	*backup;
 
@@ -50,39 +57,11 @@ static char *extract(char *line) {
 	return (backup);
 }
 
-// int process_file() {
-	
-//     int fd; 
-//     char buffer[BUFFER_SIZE];
-//     char *line;
-//     char *storage = NULL;
-
-//     ssize_t read_bytes;
-// 	read_bytes = 1;
-    
-//     fd = open("file1.ber", O_RDONLY);
-
-//     while (read_bytes > 0) {
-//         line = make_line(fd, buffer, storage); 
-//         if (strchr(line, '\n') || line != NULL) {
-//             storage = extract(line);
-//             printf("storage : %s\n", storage);
-//             printf("line after traitement: %s\n", line);
-//         }
-//         free(line); 
-//     }
-//     free(storage);
-// 	close (fd);
-//     return 0;
-// }
-
 char	*get_next_line(int fd)
 {
 	char		*line;
 	char		*buffer;
 	static char	*storage;
-
-    // fd = open("file1.ber", O_RDONLY);
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
@@ -95,6 +74,5 @@ char	*get_next_line(int fd)
 	if (!line)
 		return (NULL);
 	storage = extract(line);
-    // printf("line after traitement: %s\n", line);
 	return (line);
 }
