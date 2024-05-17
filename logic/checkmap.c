@@ -20,7 +20,7 @@ t_game *malloc_game()
     
     if (game == NULL)
     {
-        perror("Allocation de mémoire pour game a échoué");
+        printf("Allocation de mémoire pour game a échoué");
         return NULL;
     }
     return game;
@@ -34,7 +34,6 @@ int     calculate_len(t_game *game, char *line)
     while (line[len])
         len++;
     game->map_width = len;
-    printf("len : %d\n", len);
     return (0);
 }
 
@@ -57,24 +56,18 @@ static int	save_line_in_map(t_game *game, char *line)
     temp[i] = line;
     if (game->map != NULL)
         free(game->map);
-    game->map = temp;
-    // game->map_height = height;
-    // printf("save map done\n");
-    // printf("I am here map height == %d\n", game->map_height);
-    
+    game->map = temp;  
     return (1);
 }
 
 int     check_rectangle(t_game *game) 
 {
-    
     int height;
     height = game->map_height;
-    printf("map after treatement\n");
     int i = 0;
     while (i < height)
     {
-        printf("%c\n", game->map[i][0]); 
+        // printf("%c\n", game->map[i][0]); 
         i++;
     }
     return (1);
@@ -84,24 +77,18 @@ int     check_walls_horizontal(t_game *game)
 {
     int height;
     int len;
-    int count;
     int i;
 
     len = game->map_width;    
     height = game->map_height;
  
     i = 0;
-    count = 1;
     while (i < len)
     {
-        if (game->map[height - 1][i] == '1' && game->map[0][i] == '1')
-            count++;
+        if (game->map[height - 1][i] != '1' || game->map[0][i] != '1')
+            return (0);
         i++;
     }
-    if (count == len)
-        printf("horizontal walls ok !\n");
-    else 
-        printf("horizontal walls ISSUE\n");
     return (1);
 }
 
@@ -109,24 +96,19 @@ int     check_walls_vertical(t_game *game)
 {
     int height;
     int len; 
-    int count;
     int i;
 
     len = game->map_width - 1; 
     height = game->map_height;
     i = 0;
-    count = 0;
 
     while (i < height)
     {
-        if (game->map[i][len - 1] == '1' && game->map[i][0] == '1')
-            count++;
+        if (game->map[i][len - 1] != '1' || game->map[i][0] != '1')
+            return (0);
         i++;
     }
-    if (count == height)
-        return (1);
-    else 
-        return (0);
+    return (1);
 } 
 
 int     check_allowed_caracters(t_game *game)
@@ -159,36 +141,25 @@ int check_if_rectancle(t_game *game)
 
     while (game->map[0][init_len])
         init_len++;
-    printf("init len %d\n", init_len);
     while (y < game->map_height) 
     {
         x = 0;
         while(game->map[y][x])
             x++;
-        if (x == init_len)
-            printf("perfect\n");
-        else 
+        if (x != init_len)
         {
             printf("error at line = %d\n", y);
-            //corriger le return (0) pour la derniere ligne
-        }
-         
-        y++;
-    }
-    printf("y = %d\n", y); 
-    printf("MP = %d\n ", game->map_height); 
-    if (y == game->map_height)
-    {
-        x = 0;
-        while(game->map[game->map_height - 1][x])
-            x++;
-        if (x == init_len - 1)
-            printf("last line ok\n");
-        else 
-        {
-            printf("error\n");
             return (0);
         }
+        y++;
+    }
+    x = 0;
+    while(game->map[game->map_height - 1][x])
+        x++;
+    if (x != init_len + 1)
+    {
+        printf("error");
+        return (0);
     }
     return (1);
 }
