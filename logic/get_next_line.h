@@ -36,6 +36,7 @@ typedef struct s_game
 #include "./gnl_utils.c"
 #include "./gnl.c"
 #include "./checkmap.c"
+#include "./checkmap2.c"
 #include "./map.c"
 #include "./init.c"
 #include "./free.c"
@@ -67,7 +68,7 @@ int     check_rectangle(t_game *game);
 int     check_walls_horizontal(t_game *game);
 int     check_walls_vertical(t_game *game);
 int     check_allowed_caracters(t_game *game);
-t_game *malloc_game();
+t_game *malloc_game(void);
 int check_if_rectancle(t_game *game);
 int check_map(t_game *game);
 

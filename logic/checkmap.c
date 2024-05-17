@@ -1,194 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checkmap.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 13:38:36 by agtshiba          #+#    #+#             */
+/*   Updated: 2024/05/17 13:57:55 by agtshiba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 static void	*ft_memset(void *b, int c, size_t length)
 {
 	unsigned char	*p;
- 
+
 	p = (unsigned char *)b;
 	while (length--)
-    {
-        *p++ = (unsigned char)c;
-        // printf("memset en cours...");
-    }
-    //  printf("memset termine !...");
+	{
+		*p++ = (unsigned char)c;
+	}
 	return (b);
 }
 
-t_game *malloc_game()
+t_game	*malloc_game(void)
 {
-    t_game *game = (t_game *)malloc(sizeof(t_game));
-    
-    if (game == NULL)
-    {
-        printf("Allocation de mémoire pour game a échoué");
-        return NULL;
-    }
-    return game;
+	t_game	*game;
+
+	game = (t_game *)malloc(sizeof(t_game));
+	if (game == NULL)
+	{
+		printf("Allocation de mémoire pour game a échoué");
+		return (NULL);
+	}
+	return (game);
 }
 
-int     calculate_len(t_game *game, char *line)
+int	calculate_len(t_game *game, char *line)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    while (line[len])
-        len++;
-    game->map_width = len;
-    return (0);
+	len = 0;
+	while (line[len])
+		len++;
+	game->map_width = len;
+	return (0);
 }
 
 static int	save_line_in_map(t_game *game, char *line)
 {
-    char **temp;
-    int i;
+	char	**temp;
+	int		i;
 
-    if (!line)
-        return (0);
-    i = 0;
-    game->map_height++;
-    temp = (char **)malloc(sizeof(char *) * (game->map_height + 1));
-    temp[game->map_height] = NULL;
-    while (i < game->map_height - 1)
-    {
-        temp[i] = game->map[i];
-        i++;
-    }
-    temp[i] = line;
-    if (game->map != NULL)
-        free(game->map);
-    game->map = temp;  
-    return (1);
+	if (!line)
+		return (0);
+	i = 0;
+	game->map_height++;
+	temp = (char **)malloc(sizeof(char *) * (game->map_height + 1));
+	temp[game->map_height] = NULL;
+	while (i < game->map_height - 1)
+	{
+		temp[i] = game->map[i];
+		i++;
+	}
+	temp[i] = line;
+	if (game->map != NULL)
+		free(game->map);
+	game->map = temp;
+	return (1);
 }
 
-int     check_rectangle(t_game *game) 
+int	check_rectangle(t_game *game)
 {
-    int height;
-    height = game->map_height;
-    int i = 0;
-    while (i < height)
-    {
-        // printf("%c\n", game->map[i][0]); 
-        i++;
-    }
-    return (1);
-}
+	int	height;
+	int	i;
 
-int     check_walls_horizontal(t_game *game) 
-{
-    int height;
-    int len;
-    int i;
-
-    len = game->map_width;    
-    height = game->map_height;
- 
-    i = 0;
-    while (i < len)
-    {
-        if (game->map[height - 1][i] != '1' || game->map[0][i] != '1')
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int     check_walls_vertical(t_game *game)
-{
-    int height;
-    int len; 
-    int i;
-
-    len = game->map_width - 1; 
-    height = game->map_height;
-    i = 0;
-
-    while (i < height)
-    {
-        if (game->map[i][len - 1] != '1' || game->map[i][0] != '1')
-            return (0);
-        i++;
-    }
-    return (1);
-} 
-
-int     check_allowed_caracters(t_game *game)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < game->map_height) 
-    {
-        x = 0;
-        while(x < game->map_width - 1)
-        {
-            if (game->map[y][x] != '1' && game->map[y][x] != '0' &&
-                game->map[y][x] != 'P' && game->map[y][x] != 'E' && 
-                game->map[y][x] != 'C')
-                return (0);
-            x++;
-        }
-        y++;
-    }
-    return (1);
-}
-
-int check_if_rectancle(t_game *game)
-{
-    int init_len = 0;
-    int y = 1;
-    int x = 0;
-
-    while (game->map[0][init_len])
-        init_len++;
-    while (y < game->map_height) 
-    {
-        x = 0;
-        while(game->map[y][x])
-            x++;
-        if (x != init_len)
-        {
-            printf("error at line = %d\n", y);
-            return (0);
-        }
-        y++;
-    }
-    x = 0;
-    while(game->map[game->map_height - 1][x])
-        x++;
-    if (x != init_len + 1)
-    {
-        printf("error");
-        return (0);
-    }
-    return (1);
-}
-
-int check_extension_file_name(char *name)
-{
-    const char *needle = ".ber";
-
-    int i;
-    int y;
-    i = 0;
-    y = 0;
-    while (name[i])
-    {
-        if (name[i] == needle[y])
-            y++;
-        i++;
-    }
-    if (y == 4 && name[i] == '\0')
-        printf("extension ok\n");
-    return (0);
-}
-    
-
-int check_map(t_game *game)
-{
-    check_walls_horizontal(game);
-    check_walls_vertical(game);
-    check_allowed_caracters(game);
-    check_if_rectancle(game);
-    return (0);
+	height = game->map_height;
+	i = 0;
+	while (i < height)
+		i++;
+	return (1);
 }
