@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkmap3.c                                        :+:      :+:    :+:   */
+/*   my_printf_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:44:33 by agtshiba          #+#    #+#             */
-/*   Updated: 2024/05/17 15:44:35 by agtshiba         ###   ########.fr       */
+/*   Created: 2023/11/03 13:55:31 by agtshiba          #+#    #+#             */
+/*   Updated: 2023/11/03 13:56:30 by agtshiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_map(t_game *game)
+#include "ft_printf.h"
+#include <stdio.h>
+#include <unistd.h>
+
+int	my_printf_unsigned(unsigned int nbr)
 {
-	check_walls_horizontal(game);
-	check_walls_vertical(game);
-	check_allowed_caracters(game);
-	check_if_rectancle(game);
-	return (0);
+	if (nbr >= 10)
+	{
+		my_printf_unsigned(nbr / 10);
+		my_printf_unsigned(nbr % 10);
+	}
+	else
+		my_printf_character(nbr + '0');
+	return (ft_nbrlen_unsigned(nbr, 10));
 }

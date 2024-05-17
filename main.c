@@ -8,6 +8,8 @@ int main() {
 
     t_game  game;
     
+    printf("HELLO\n");
+    
     // - FLOOD FILL CHECK - //
     check_flood_fill_map(&game);
 

@@ -72,6 +72,7 @@ int	check_if_rectancle(t_game *game)
 {
 	int	init_len;
 	int	y;
+	int x;
 
 	init_len = 0;
 	y = 1;
@@ -105,7 +106,7 @@ int	check_extension_file_name(char *name)
 
 	i = 0;
 	y = 0;
-	neelde = ".ber";
+	needle = ".ber";
 	while (name[i])
 	{
 		if (name[i] == needle[y])

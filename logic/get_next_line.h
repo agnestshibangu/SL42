@@ -37,6 +37,7 @@ typedef struct s_game
 #include "./gnl.c"
 #include "./checkmap.c"
 #include "./checkmap2.c"
+#include "./checkmap3.c"
 #include "./map.c"
 #include "./init.c"
 #include "./free.c"

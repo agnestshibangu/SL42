@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkmap3.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:44:33 by agtshiba          #+#    #+#             */
-/*   Updated: 2024/05/17 15:44:35 by agtshiba         ###   ########.fr       */
+/*   Created: 2023/11/03 13:30:26 by agtshiba          #+#    #+#             */
+/*   Updated: 2023/11/03 13:30:29 by agtshiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_map(t_game *game)
+#include "ft_printf.h"
+
+size_t	ft_nbrlen_unsigned(unsigned long long nbr, int base)
 {
-	check_walls_horizontal(game);
-	check_walls_vertical(game);
-	check_allowed_caracters(game);
-	check_if_rectancle(game);
-	return (0);
+	size_t	len;
+
+	len = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr)
+	{
+		nbr /= base;
+		len++;
+	}
+	return (len);
 }

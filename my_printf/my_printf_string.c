@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkmap3.c                                        :+:      :+:    :+:   */
+/*   my_printf_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:44:33 by agtshiba          #+#    #+#             */
-/*   Updated: 2024/05/17 15:44:35 by agtshiba         ###   ########.fr       */
+/*   Created: 2023/11/03 13:52:26 by agtshiba          #+#    #+#             */
+/*   Updated: 2023/11/03 13:54:30 by agtshiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_map(t_game *game)
+#include "ft_printf.h"
+
+int	my_printf_string(char *str)
 {
-	check_walls_horizontal(game);
-	check_walls_vertical(game);
-	check_allowed_caracters(game);
-	check_if_rectancle(game);
-	return (0);
+	unsigned int	i;
+
+	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }
