@@ -10,7 +10,7 @@ CFLAGS := -Wall -Wextra -Werror -g
 # CFLAGS := -Wall -Wextra -Werror -Iheaders/
 
 # printf
-PRINTF_NAME = my_printf
+PRINTF_NAME = my_printf 
 PRINTF_PATH = ./my_printf/
 PRINTF = $(PRINTF_PATH)$(PRINTF_NAME)
 

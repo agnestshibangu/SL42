@@ -119,7 +119,7 @@ void    count_collectibles(t_game *game)
         }
         y++;
     }
-    printf("TOTAL COLLECTIBLES: %d\n", game->nb_collectibles);
+    ft_printf("TOTAL COLLECTIBLES: %d\n", game->nb_collectibles);
     fflush(stdout);   
 }
 

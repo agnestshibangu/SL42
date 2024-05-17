@@ -6,8 +6,8 @@ int     display_player_pos(t_game *game)
     int y;
 
     y = 0;
-    printf("map height %d\n", game->map_height);
-    printf("map width %d\n", game->map_width);
+    ft_printf("map height %d\n", game->map_height);
+    ft_printf("map width %d\n", game->map_width);
     while (y < game->map_height)
     {
         x = 0;
@@ -17,8 +17,8 @@ int     display_player_pos(t_game *game)
             {
                 game->player_pos_x = x;
                 game->player_pos_y = y;
-                printf("player pos x %d\n", game->player_pos_x);
-                printf("player pos y %d\n", game->player_pos_y);
+                ft_printf("player pos x %d\n", game->player_pos_x);
+                ft_printf("player pos y %d\n", game->player_pos_y);
                 game->map[y][x] = '0';
                 return (0);
             }
@@ -26,7 +26,7 @@ int     display_player_pos(t_game *game)
         }
         y++;
     }
-    printf("PLAYER POSITION\n");
+    ft_printf("PLAYER POSITION\n");
     return (1);
 }
 
@@ -122,7 +122,7 @@ int move_up(t_game *game)
         if (game->map[y - 1][x] == 'C')
         {
             game->got_collectibles++;
-            printf("GOT %d\n", game->got_collectibles);
+            ft_printf("GOT %d\n", game->got_collectibles);
             fflush(stdout);  
             game->map[y - 1][x] = '0';
         }  
@@ -151,7 +151,7 @@ int move_down(t_game *game)
         if (game->map[y + 1][x] == 'C')
         {
             game->got_collectibles++;
-            printf("GOT %d\n", game->got_collectibles);
+            ft_printf("GOT %d\n", game->got_collectibles);
             fflush(stdout);             
             game->map[y + 1][x] = '0';
         }  

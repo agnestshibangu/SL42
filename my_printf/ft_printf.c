@@ -69,11 +69,11 @@ int	ft_printf(char const *str, ...)
 	return (print_len);
 }
 
-int	main(void)
-{
-    char *str;
-    str = "coucou";
+// int	main(void)
+// {
+//     char *str;
+//     str = "coucou";
 
-	ft_printf("%s\n", str);
-	return (0);
-}
+// 	ft_printf("%s\n", str);
+// 	return (0);
+// }

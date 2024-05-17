@@ -85,7 +85,7 @@ int	check_if_rectancle(t_game *game)
 			x++;
 		if (x != init_len)
 		{
-			printf("error at line = %d\n", y);
+			ft_printf("error at line = %d\n", y);
 			return (0);
 		}
 		y++;
@@ -114,6 +114,6 @@ int	check_extension_file_name(char *name)
 		i++;
 	}
 	if (y == 4 && name[i] == '\0')
-		printf("extension ok\n");
+		ft_printf("extension ok\n");
 	return (0);
 }

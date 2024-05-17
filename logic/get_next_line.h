@@ -1,13 +1,11 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stdio.h>
+// #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-
-
 
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1 
@@ -33,6 +31,7 @@ typedef struct s_game
     int         win_height;
 }               t_game;
 
+#include "../my_printf/ft_printf.c"
 #include "./gnl_utils.c"
 #include "./gnl.c"
 #include "./checkmap.c"
@@ -43,11 +42,6 @@ typedef struct s_game
 #include "./free.c"
 #include "./controls.c"
 #include "./floodfill.c"
-
-
-
-
-
 
 
 int	ft_strlen(const char *str);

@@ -31,7 +31,7 @@ t_game	*malloc_game(void)
 	game = (t_game *)malloc(sizeof(t_game));
 	if (game == NULL)
 	{
-		printf("Allocation de mémoire pour game a échoué");
+		ft_printf("Allocation de mémoire pour game a échoué");
 		return (NULL);
 	}
 	return (game);

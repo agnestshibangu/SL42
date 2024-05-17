@@ -22,13 +22,13 @@ int	free_game(t_game *game)
 		while (game->map[nbr_of_lines++])
 			free(game->map[nbr_of_lines]);
 		free(game->map);
-		printf("game map freed successfully\n");
+		ft_printf("game map freed successfully\n");
 	}
 	if (game->win != NULL)
 	{
 		mlx_destroy_window(game->mlx, game->win);
 		game->win = NULL;
-		printf("window destroyed !\n");
+		ft_printf("window destroyed !\n");
 	}
 	if (game->mlx != NULL)
 	{

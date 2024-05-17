@@ -35,7 +35,7 @@ void	map_len(t_game *game)
 	while (game->map[0][len])
 		len++;
 	game->map_width = len;
-	printf("map len : %d", game->map_width);
+	ft_printf("map len : %d", game->map_width);
 }
 
 void	flood_map(t_game *game, int x, int y)
@@ -63,17 +63,17 @@ int	check_flood_fill(t_game *game)
 		{
 			if (game->map[i][j] == 'C' || game->map[i][j] == 'E')
 			{
-				printf(" ! error flood fill error ! ");
+				ft_printf(" ! error flood fill error ! ");
 				return (-1);
 			}
-			printf("%c", game->map[i][j]);
+			ft_printf("%c", game->map[i][j]);
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	printf("\n");
-	printf("CHECK FLOOD FILL DONE \n");
+	ft_printf("\n");
+	ft_printf("CHECK FLOOD FILL DONE \n");
 	return (0);
 }
 
@@ -85,7 +85,7 @@ int	check_flood_fill_map(t_game *game)
 	flood_map(game, game->player_pos_x, game->player_pos_y);
 	check_flood_fill(game);
 	map_free_after_flood_fill(game);
-	printf("\n");
-	printf(" !!! check flood fill DONE !!!");
+	ft_printf("\n");
+	ft_printf(" !!! check flood fill DONE !!!");
 	return (1);
 }
