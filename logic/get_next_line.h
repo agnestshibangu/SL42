@@ -11,6 +11,30 @@
 # define BUFFER_SIZE 1 
 # endif
 
+// x = xpm   i = img
+typedef struct s_img
+{
+    char        *x_p_per;
+    char        *x_p_per_rr;
+    char        *x_p_per_u;
+    char        *x_p_per_uu;
+    char        *x_p_per_l;
+    char        *x_p_per_ll;
+    char        *x_p_per_d;
+    char        *x_p_per_dd;
+    void        *x_i_per;
+	void        *x_i_per_rr;
+	void        *x_i_per_u;
+	void        *x_i_per_uu;
+	void        *x_i_per_l;
+	void        *x_i_per_ll;
+	void        *x_i_per_d;
+	void        *x_i_per_dd;
+
+
+}               t_img;
+
+// x_h == xpm_height
 typedef struct s_game
 {
     char        **map;
@@ -22,13 +46,14 @@ typedef struct s_game
     int         steps;
     void        *mlx;
     void        *win;
-    int         xpm_height;
-    int         xpm_width;
+    int         x_h;
+    int         x_w;
     int         nb_collectibles;
     int         got_collectibles;
     int         game_complete;
-    int         win_width;
-    int         win_height;
+    int         win_w;
+    int         win_h;
+    t_img    img; 
 }               t_game;
 
 #include "../my_printf/ft_printf.c"
@@ -66,6 +91,7 @@ int     check_allowed_caracters(t_game *game);
 t_game *malloc_game(void);
 int check_if_rectancle(t_game *game);
 int check_map(t_game *game);
+void 	init_images(t_game *game);
 
 // map
 void    create_map(t_game *game);

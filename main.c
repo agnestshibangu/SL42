@@ -17,6 +17,7 @@ int main() {
     check_map(&game);
     count_collectibles(&game);
     window_size(&game);
+    init_images(&game);
    
     char *path = "./images_op_end/first_image.xpm";
 
