@@ -58,7 +58,7 @@ void	window_size(t_game *game)
 	ft_printf("window size");
 }
 
-void 	init_images(t_game *game)
+void 	init_images_character(t_game *game)
 {
 	t_game *g = game;
 	void *m = g->mlx;
@@ -82,4 +82,21 @@ void 	init_images(t_game *game)
 	g->img.x_i_c_ll = mlx_xpm_file_to_image(m, g->img.x_p_c_ll, w, h);
 	g->img.x_i_c_d = mlx_xpm_file_to_image(m, g->img.x_p_c_d, w, h);
 	g->img.x_i_c_dd = mlx_xpm_file_to_image(m, g->img.x_p_c_dd, w, h);
+}
+
+void init_images_obj(t_game *game)
+{
+	t_game *g = game;
+	void *m = g->mlx;
+	int *h = &g->x_h;
+	int *w = &g->x_w;
+
+	g->img.xpw = "./images/wall.xpm";
+	g->img.xpg = "./images/ground.xpm";
+	g->img.xpcoll = "./images/collectible.xpm";
+	g->img.xpd = "./images/portal.xpm";
+	g->img.xiwal = mlx_xpm_file_to_image(m, g->img.xpw, w, h);
+	g->img.xigro = mlx_xpm_file_to_image(m, g->img.xpg, w, h);
+	g->img.xicol = mlx_xpm_file_to_image(m, g->img.xpcoll, w, h);
+	g->img.xidoo = mlx_xpm_file_to_image(m, g->img.xpd, w, h);
 }

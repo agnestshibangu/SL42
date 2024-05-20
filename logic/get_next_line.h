@@ -14,6 +14,7 @@
 // x = xpm   i = img
 typedef struct s_img
 {
+    // character paths
     char        *x_p_c;
     char        *x_p_c_rr;
     char        *x_p_c_u;
@@ -22,6 +23,12 @@ typedef struct s_img
     char        *x_p_c_ll;
     char        *x_p_c_d;
     char        *x_p_c_dd;
+    // objects paths
+    char        *xpw;
+    char        *xpg;
+    char        *xpcoll;
+    char        *xpd;
+    //character images
     void        *x_i_c;
 	void        *x_i_c_rr;
 	void        *x_i_c_u;
@@ -30,8 +37,11 @@ typedef struct s_img
 	void        *x_i_c_ll;
 	void        *x_i_c_d;
 	void        *x_i_c_dd;
-
-
+    //objects images
+    void        *xiwal;
+    void        *xigro;
+    void        *xicol;
+    void        *xidoo;
 }               t_img;
 
 // x_h == xpm_height
@@ -91,7 +101,8 @@ int     check_allowed_caracters(t_game *game);
 t_game *malloc_game(void);
 int check_if_rectancle(t_game *game);
 int check_map(t_game *game);
-void 	init_images(t_game *game);
+void 	init_images_character(t_game *game);
+void init_images_obj(t_game *game);
 
 // map
 void    create_map(t_game *game);
