@@ -6,7 +6,7 @@
 /*   By: agtshiba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:59:48 by agtshiba          #+#    #+#             */
-/*   Updated: 2024/05/17 15:42:39 by agtshiba         ###   ########.fr       */
+/*   Updated: 2024/05/20 21:24:42 by agtshiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	check_if_rectancle(t_game *game)
 {
 	int	init_len;
 	int	y;
-	int x;
+	int	x;
 
 	init_len = 0;
 	y = 1;
@@ -84,10 +84,7 @@ int	check_if_rectancle(t_game *game)
 		while (game->map[y][x])
 			x++;
 		if (x != init_len)
-		{
-			ft_printf("error at line = %d\n", y);
 			return (0);
-		}
 		y++;
 	}
 	x = 0;

@@ -76,6 +76,7 @@ typedef struct s_game
 #include "./init.c"
 #include "./free.c"
 #include "./controls.c"
+#include "./controls2.c"
 #include "./floodfill.c"
 
 
