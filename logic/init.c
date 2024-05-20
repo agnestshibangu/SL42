@@ -55,25 +55,31 @@ void	window_size(t_game *game)
 	win_h = game->map_height * 31;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, win_w, win_h, "game map");
+	ft_printf("window size");
 }
 
 void 	init_images(t_game *game)
 {
-	game->img.x_p_per = "./images/perso.xpm";
-	game->img.x_p_per_rr = "./images/perso_right_right.xpm";
-	game->img.x_p_per_u = "./images/perso_up.xpm";
-	game->img.x_p_per_uu = "./images/perso_up_up.xpm";	
-	game->img.x_p_per_l = "./images/perso_left.xpm";
-    game->img.x_p_per_ll = "./images/perso_left_left.xpm";
-	game->img.x_p_per_d = "./images/perso_down.xpm";
-    game->img.x_p_per_dd = "./images/perso_down_down.xpm";
+	t_game *g = game;
+	void *m = g->mlx;
+	int *h = &g->x_h;
+	int *w = &g->x_w;
+	
+	g->img.x_p_c = "./images/perso.xpm";
+	g->img.x_p_c_rr = "./images/perso_right_right.xpm";
+	g->img.x_p_c_u = "./images/perso_up.xpm";
+	g->img.x_p_c_uu = "./images/perso_up_up.xpm";	
+	g->img.x_p_c_l = "./images/perso_left.xpm";
+    g->img.x_p_c_ll = "./images/perso_left_left.xpm";
+	g->img.x_p_c_d = "./images/perso_down.xpm";
+    g->img.x_p_c_dd = "./images/perso_down_down.xpm";
 
-	game->img.x_i_per = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per, &game->x_w, &game->x_h);
-	game->img.x_i_per_rr = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_rr, &game->x_w, &game->x_h);
-	game->img.x_i_per_u = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_u, &game->x_w, &game->x_h);
-	game->img.x_i_per_uu = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_uu, &game->x_w, &game->x_h);
-	game->img.x_i_per_l = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_l, &game->x_w, &game->x_h);
-	game->img.x_i_per_ll = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_ll, &game->x_w, &game->x_h);
-	game->img.x_i_per_d = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_d, &game->x_w, &game->x_h);
-	game->img.x_i_per_dd = mlx_xpm_file_to_image(game->mlx, game->img.x_p_per_dd, &game->x_w, &game->x_h);
+	g->img.x_i_c = mlx_xpm_file_to_image(m, g->img.x_p_c, w, h);
+	g->img.x_i_c_rr = mlx_xpm_file_to_image(m, g->img.x_p_c_rr, w, h);
+	g->img.x_i_c_u = mlx_xpm_file_to_image(m, g->img.x_p_c_u, w, h);
+	g->img.x_i_c_uu = mlx_xpm_file_to_image(m, g->img.x_p_c_uu, w, h);
+	g->img.x_i_c_l = mlx_xpm_file_to_image(m, g->img.x_p_c_l, w, h);
+	g->img.x_i_c_ll = mlx_xpm_file_to_image(m, g->img.x_p_c_ll, w, h);
+	g->img.x_i_c_d = mlx_xpm_file_to_image(m, g->img.x_p_c_d, w, h);
+	g->img.x_i_c_dd = mlx_xpm_file_to_image(m, g->img.x_p_c_dd, w, h);
 }

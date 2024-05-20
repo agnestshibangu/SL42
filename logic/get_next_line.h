@@ -14,22 +14,22 @@
 // x = xpm   i = img
 typedef struct s_img
 {
-    char        *x_p_per;
-    char        *x_p_per_rr;
-    char        *x_p_per_u;
-    char        *x_p_per_uu;
-    char        *x_p_per_l;
-    char        *x_p_per_ll;
-    char        *x_p_per_d;
-    char        *x_p_per_dd;
-    void        *x_i_per;
-	void        *x_i_per_rr;
-	void        *x_i_per_u;
-	void        *x_i_per_uu;
-	void        *x_i_per_l;
-	void        *x_i_per_ll;
-	void        *x_i_per_d;
-	void        *x_i_per_dd;
+    char        *x_p_c;
+    char        *x_p_c_rr;
+    char        *x_p_c_u;
+    char        *x_p_c_uu;
+    char        *x_p_c_l;
+    char        *x_p_c_ll;
+    char        *x_p_c_d;
+    char        *x_p_c_dd;
+    void        *x_i_c;
+	void        *x_i_c_rr;
+	void        *x_i_c_u;
+	void        *x_i_c_uu;
+	void        *x_i_c_l;
+	void        *x_i_c_ll;
+	void        *x_i_c_d;
+	void        *x_i_c_dd;
 
 
 }               t_img;
