@@ -1,7 +1,6 @@
 # Nom de l'executable
 NAME := so_long
 
-# Compilateur
 CC := cc
 # CC := gcc
 

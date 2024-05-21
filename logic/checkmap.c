@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static void	*ft_memset(void *b, int c, size_t length)
+void	*ft_memset(void *b, int c, size_t length)
 {
 	unsigned char	*p;
 
@@ -24,17 +24,43 @@ static void	*ft_memset(void *b, int c, size_t length)
 	return (b);
 }
 
-t_game	*malloc_game(void)
+void 	calculate_height_map(t_game *game)
 {
-	t_game	*game;
+	int		fd;
+	int 	height;
+	char	*treated_line;
+	char	*name_file;
 
+	height = 0;
+	name_file = "./ber_files/file2.ber";
+	check_extension_file_name(name_file);
+	fd = open(name_file, O_RDONLY);
+	// ft_memset(game, 0, sizeof(t_game));
+	treated_line = get_next_line(fd);	
+	if (!treated_line)
+	{
+			close(fd);
+			return ;
+	}
+	while (treated_line){
+		height++;
+		free(treated_line);
+		treated_line = get_next_line(fd);	
+	}
+	game->map_height = height;
+	ft_printf("%d\n",height);
+	close(fd);
+}
+
+
+// ALLOC
+void	malloc_game(t_game *game)
+{
 	game = (t_game *)malloc(sizeof(t_game));
 	if (game == NULL)
 	{
 		ft_printf("Allocation de mémoire pour game a échoué");
-		return (NULL);
 	}
-	return (game);
 }
 
 int	calculate_len(t_game *game, char *line)
@@ -48,10 +74,12 @@ int	calculate_len(t_game *game, char *line)
 	return (0);
 }
 
+// ALLOC
 static int	save_line_in_map(t_game *game, char *line)
 {
 	char	**temp;
 	int		i;
+	int 	nbr_of_lines;
 
 	if (!line)
 		return (0);
@@ -65,8 +93,22 @@ static int	save_line_in_map(t_game *game, char *line)
 		i++;
 	}
 	temp[i] = line;
+	// free map 
 	if (game->map != NULL)
+	{
+		nbr_of_lines = 0;
+		while (game->map[nbr_of_lines])
+		{
+			free(game->map[nbr_of_lines]);
+			game->map[nbr_of_lines] = NULL;
+            nbr_of_lines++;
+		}
 		free(game->map);
+		game->map = NULL;
+	}
+	// if (game->map != NULL)
+	// 	free(game->map);
+	// free(line);
 	game->map = temp;
 	return (1);
 }

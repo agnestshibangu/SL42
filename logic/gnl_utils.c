@@ -77,6 +77,7 @@ char	*ft_strchr(const char *s, int i)
 	return (0);
 }
 
+// ALLOC
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
@@ -85,9 +86,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == NULL)
+	{
 		return (NULL);
+	}
+	
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];

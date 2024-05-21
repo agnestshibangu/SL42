@@ -7,7 +7,9 @@
 int main() {
 
     t_game  game;
-    
+
+    malloc_game(&game);
+    calculate_height_map(&game);
     // - FLOOD FILL CHECK - //
     check_flood_fill_map(&game);
 
@@ -16,7 +18,7 @@ int main() {
     calculate_len(&game, game.map[0]);
     check_map(&game);
     count_collectibles(&game);
-    window_size(&game);
+    window_init(&game);
     init_images_character(&game);
     init_images_obj(&game);
    

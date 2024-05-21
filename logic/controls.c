@@ -44,9 +44,7 @@ void	portal(t_game *game)
 	if (game->got_collectibles == game->nb_collectibles
 		&& game->map[game->player_pos_y][game->player_pos_x] == 'E')
 	{
-		mlx_clear_window(game->mlx, game->win);
 		free_game(game);
-		display_image_before(game, path);
 	}
 }
 

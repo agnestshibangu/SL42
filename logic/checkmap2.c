@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
 int	check_walls_horizontal(t_game *game)
 {
 	int	height;

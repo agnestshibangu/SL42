@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 
+
 void	create_map(t_game *game)
 {
 	int		fd;
@@ -22,19 +23,40 @@ void	create_map(t_game *game)
 	check_extension_file_name(name_file);
 	fd = open(name_file, O_RDONLY);
 	ft_memset(game, 0, sizeof(t_game));
-	while (1){
-		treated_line = get_next_line(fd);
-		save_line_in_map(game, treated_line);
-		if (!treated_line)
-			break ;
+	treated_line = get_next_line(fd);
+	if (!treated_line)
+	{
+			close(fd);
+			// free(treated_line);
+			return ;
 	}
+	while (treated_line){
+		save_line_in_map(game, treated_line);
+		free(treated_line);
+		treated_line = get_next_line(fd);	
+	}
+	free(treated_line);
+	close(fd);
 }
+
+// while (1){
+	// 	treated_line = get_next_line(fd);
+	// 	save_line_in_map(game, treated_line);
+	// 	if (!treated_line)
+	// 	{
+	// 		close(fd);
+	// 		free(treated_line);
+	// 		get_next_line(-1);
+	// 		break ;
+	// 	}	
+	// }
 
 void	display_image_before(t_game *game, char *path)
 {
 	void	*img;
 	img = mlx_xpm_file_to_image(game->mlx, path, &game->win_w, &game->win_h);
 	if (!img){
+		//ft_printf("destroy successful");
 		mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		return ;
@@ -42,10 +64,12 @@ void	display_image_before(t_game *game, char *path)
 	mlx_put_image_to_window(game->mlx, game->win, img, 0, 0);
 	mlx_do_sync(game->mlx);
 	usleep(3000000);
+	mlx_destroy_image(game->mlx, img);
 	mlx_clear_window(game->mlx, game->win);
+	// mlx_destroy_window(game->mlx, game->win);
 }
 
-void	window_size(t_game *game)
+void	window_init(t_game *game)
 {
 	int	win_w;
 	int	win_h;

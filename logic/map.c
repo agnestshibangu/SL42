@@ -44,13 +44,13 @@ void	drawGrid(t_game *game)
 	t_game	*g;
 	int	y;
 	int	x;
-	int	w;
-	int	h;
+	// int	w;
+	// int	h;
 
 	g = game;
 	y = 0;
-	w = x * g->x_w;
-	h = y * g->x_h;
+	// w = x * g->x_w;
+	// h = y * g->x_h;
 	while (y < game->map_height)
 	{
 		x = 0;
@@ -59,13 +59,13 @@ void	drawGrid(t_game *game)
 			if ((game->player_pos_y == y) && (game->player_pos_x == x))
 				animation_caracter(game, x, y);
 			else if (g->map[y][x] == '1')
-				mlx_put_image_to_window(g->mlx, g->win, g->img.xiwal, w, h);
+				mlx_put_image_to_window(g->mlx, g->win, g->img.xiwal, x * g->x_w, y * g->x_h);
 			else if (g->map[y][x] == '0')
-				mlx_put_image_to_window(g->mlx, g->win, g->img.xigro, w, h);
+				mlx_put_image_to_window(g->mlx, g->win, g->img.xigro, x * g->x_w, y * g->x_h);
 			else if (g->map[y][x]  == 'C')  
-				mlx_put_image_to_window(g->mlx, g->win, g->img.xicol, w, h);
+				mlx_put_image_to_window(g->mlx, g->win, g->img.xicol, x * g->x_w, y * g->x_h);
 			else if (g->map[y][x]  == 'E')
-				mlx_put_image_to_window(g->mlx, g->win, g->img.xidoo, w, h);
+				mlx_put_image_to_window(g->mlx, g->win, g->img.xidoo, x * g->x_w, y * g->x_h);
 			x++;
 		}
 		y++;

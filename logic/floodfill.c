@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 
+// FREE
 int	map_free_after_flood_fill(t_game *game)
 {
 	int	nbr_of_lines;
@@ -79,6 +80,7 @@ int	check_flood_fill(t_game *game)
 
 int	check_flood_fill_map(t_game *game)
 {
+	ft_printf("coucou");
 	create_map(game);
 	map_len(game);
 	display_player_pos(game);

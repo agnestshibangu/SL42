@@ -63,14 +63,14 @@ typedef struct s_game
     int         game_complete;
     int         win_w;
     int         win_h;
-    t_img    img; 
+    t_img       img; 
 }               t_game;
 
 #include "../my_printf/ft_printf.c"
 #include "./gnl_utils.c"
 #include "./gnl.c"
-#include "./checkmap.c"
 #include "./checkmap2.c"
+#include "./checkmap.c"
 #include "./checkmap3.c"
 #include "./map.c"
 #include "./init.c"
@@ -86,20 +86,24 @@ char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int i);
 char	*ft_strjoin(char const *s1, char const *s2);
 static char *make_line(int fd, char *buffer, char *storage);
-static char	*extract(char *line);
+// static char	*extract(char *line);
+static char	*my_extract(char *line);
 char	*get_next_line(int fd);
-static void	*ft_memset(void *b, int c, size_t length);
+void	*ft_memset(void *b, int c, size_t length);
 int     calculate_len(t_game *game, char *treated_line);
 //int     calculate_len(char *treated_line);
 
 void    display_image_before(t_game *game, char *path);
 
+
+int	check_extension_file_name(char *name);
 static int	save_line_in_map(t_game *game, char *line);
 int     check_rectangle(t_game *game);
 int     check_walls_horizontal(t_game *game);
 int     check_walls_vertical(t_game *game);
 int     check_allowed_caracters(t_game *game);
-t_game *malloc_game(void);
+void	malloc_game(t_game *game);
+// t_game *malloc_game(void);
 int check_if_rectancle(t_game *game);
 int check_map(t_game *game);
 void 	init_images_character(t_game *game);
@@ -109,7 +113,7 @@ void init_images_obj(t_game *game);
 void    create_map(t_game *game);
 void    drawGrid(t_game *game);
 void    count_collectibles(t_game *game);
-void    window_size(t_game *game);
+void    window_init(t_game *game);
 
 // floodfill
 void    map_len(t_game *game);
@@ -134,6 +138,7 @@ void walking(t_game *game);
 
 // free.c
 int     free_game(t_game *game);
+void 	free_images(t_game *game);
 
 
 
