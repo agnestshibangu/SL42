@@ -44,19 +44,9 @@ void	drawGrid(t_game *game)
 	t_game	*g;
 	int	y;
 	int	x;
-<<<<<<< HEAD
-	// int	w;
-	// int	h;
 
 	g = game;
 	y = 0;
-	// w = x * g->x_w;
-	// h = y * g->x_h;
-=======
-
-	g = game;
-	y = 0;
->>>>>>> c29f601 (commit)
 	while (y < game->map_height)
 	{
 		x = 0;
